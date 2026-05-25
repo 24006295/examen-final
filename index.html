@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen B_24006295 - Control de Calidad</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://img.icons8.com/fluency/48/guarantee.png" type="image/x-icon">
+    <!-- Google Fonts para un aspecto Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Hojas de Estilos -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Enlace al Manifest para Instalación PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+
+    <!-- CABECERA DE LA APP -->
+    <header class="app-header">
+        <div class="header-content">
+            <div class="brand">
+                <span class="brand-badge">b_24006295</span>
+                <h1 class="brand-title">Soap-Lab Quality</h1>
+            </div>
+            <button id="theme-toggle" class="btn-icon" aria-label="Cambiar Tema">
+                <!-- Sol Icono -->
+                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                <!-- Luna Icono -->
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-svg hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="app-container">
+
+        <!-- 1. SECCIÓN DE BIENVENIDA -->
+        <section id="welcome" class="card-section">
+            <div class="badge-accent">Módulo de Bienvenida</div>
+            <div class="welcome-hero">
+                <!-- Logotipo de Calidad Generado en SVG -->
+                <div class="quality-logo-container">
+                    <svg viewBox="0 0 100 100" class="quality-logo">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="var(--primary)" stroke-width="4" stroke-dasharray="8,4" />
+                        <circle cx="50" cy="50" r="38" fill="var(--primary-light)" opacity="0.15" />
+                        <path d="M30,52 L45,67 L72,35" fill="none" stroke="var(--primary)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                        <circle cx="50" cy="50" r="6" fill="var(--accent)" />
+                    </svg>
+                </div>
+                <h2>Garantía de Excelencia</h2>
+                <span class="subtitle">Manual de Control de Calidad y Manufactura</span>
+            </div>
+
+            <div class="policy-box">
+                <h3 class="policy-title">Política de Calidad Empresarial</h3>
+                <p id="policy-text" class="policy-body">
+                    "En Soap-Lab, nos comprometemos a asegurar la máxima pureza, uniformidad y sostenibilidad en cada lote de jabón de glicerina manufacturado. Empleamos un riguroso control de pesos usando balanzas calibradas y el uso exclusivo de utensilios de acero inoxidable y silicona higiénica, garantizando que cada pieza cumpla rigurosamente con los estándares internacionales de cuidado e hidratación de la piel humana."
+                </p>
+                
+                <button id="btn-read-aloud" class="btn btn-primary w-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon-svg"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                    Escuchar Compromiso
+                </button>
+            </div>
+        </section>
+
+        <!-- 2. SECCIÓN DE REPORTE (FORMULARIO) -->
+        <section id="report" class="card-section">
+            <div class="badge-accent">Registro de Auditoría</div>
+            <h2 class="section-title">Reporte de Manufactura</h2>
+            <p class="section-desc">Identifica y registra anomalías de la línea de producción de jabón de glicerina de forma inmediata.</p>
+
+            <form id="qa-report-form" class="qa-form" novalidate>
+                <div class="form-group">
+                    <label for="input-operator">Operador Auditor</label>
+                    <input type="text" id="input-operator" placeholder="Ej. Juan Pérez - Carné 24006295" required>
+                    <span class="error-msg" id="error-operator">Por favor, ingresa el nombre del auditor técnico.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="select-line">Línea de Producción</label>
+                    <select id="select-line" required>
+                        <option value="" disabled selected>Selecciona una línea de vertido...</option>
+                        <option value="linea-a">Línea A - Jabón de Glicerina Base</option>
+                        <option value="linea-b">Línea B - Jabón de Avena & Miel</option>
+                        <option value="linea-c">Línea C - Jabones Aromáticos Terapéuticos</option>
+                        <option value="linea-d">Línea D - Bloques de Corte Manual</option>
+                    </select>
+                    <span class="error-msg" id="error-line">Debes seleccionar la línea de producción afectada.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="select-defect">Tipo de Defecto Detectado</label>
+                    <select id="select-defect" required>
+                        <option value="" disabled selected>Selecciona la falla...</option>
+                        <option value="burbujas">Exceso de burbujas en el vaciado (Falta alcohol isopropílico)</option>
+                        <option value="temperatura">Sobrecalentamiento de la base (Pérdida de propiedades)</option>
+                        <option value="desmolde">Rotura / Deformación en el proceso de desmolde</option>
+                        <option value="contaminacion">Inclusión de agentes porosos o impurezas externas</option>
+                        <option value="peso">Peso incorrecto en gramaje final de barras</option>
+                    </select>
+                    <span class="error-msg" id="error-defect">Por favor, especifica el tipo de defecto observado.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="text-obs">Observaciones y Acción Correctiva</label>
+                    <textarea id="text-obs" rows="3" placeholder="Describe brevemente la anomalía y el plan correctivo implementado..." required></textarea>
+                    <span class="error-msg" id="error-obs">Describe las observaciones técnicas encontradas.</span>
+                </div>
+
+                <button type="submit" class="btn btn-secondary w-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon-svg"><path d="M12 5v14M5 12h14"/></svg>
+                    Enviar Reporte a QA
+                </button>
+            </form>
+
+            <!-- Alerta Flotante de Confirmación dentro de la Tarjeta -->
+            <div id="form-alert" class="alert-box hidden">
+                <div class="alert-icon">✓</div>
+                <div class="alert-content">
+                    <strong class="alert-title">Reporte Exitoso</strong>
+                    <p class="alert-body">Los datos han sido validados correctamente por el sistema de control de calidad.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SECCIÓN DE GEOLOCALIZACIÓN -->
+        <section id="geo" class="card-section">
+            <div class="badge-accent">Georreferenciación</div>
+            <h2 class="section-title">Ubicación de Planta</h2>
+            <p class="section-desc">Obtén las coordenadas de auditoría en tiempo real para verificar la presencia en la planta de manufactura.</p>
+
+            <div class="geo-panel">
+                <div class="geo-metrics">
+                    <div class="metric">
+                        <span class="metric-label">Latitud</span>
+                        <span id="geo-lat" class="metric-value">--.------</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Longitud</span>
+                        <span id="geo-lng" class="metric-value">--.------</span>
+                    </div>
+                </div>
+
+                <div id="geo-status" class="geo-status-indicator">
+                    <span class="status-dot"></span>
+                    <span id="status-text">Ubicación sin escanear</span>
+                </div>
+
+                <button id="btn-capture-geo" class="btn btn-accent w-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon-svg"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Escanear Coordenadas de Planta
+                </button>
+            </div>
+        </section>
+
+        <!-- 4. SECCIÓN MULTIMEDIA Y AUDITORÍA (CANVAS INTERACTIVO) -->
+        <section id="multimedia" class="card-section">
+            <div class="badge-accent">Portal Interactivo Canvas</div>
+            <h2 class="section-title">Terminal de Enlaces Interactivos</h2>
+            <p class="section-desc">Presiona o desliza sobre el lienzo interactivo del radar de calidad para navegar a nuestros portales oficiales de referencia técnica.</p>
+
+            <!-- Contenedor del Canvas Adaptable -->
+            <div class="canvas-container">
+                <canvas id="interactive-radar" class="radar-canvas"></canvas>
+            </div>
+            
+            <div class="canvas-legend">
+                <div class="legend-item"><span class="color-dot dot-cyan"></span> Soap-Lab Wix Portal</div>
+                <div class="legend-item"><span class="color-dot dot-pink"></span> Video Instructivo YouTube</div>
+                <div class="legend-item"><span class="color-dot dot-purple"></span> Universidad Galileo</div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER MÓVIL -->
+    <footer class="app-footer">
+        <p class="footer-copy">&copy; 2026 Examen b_24006295 | Control de Calidad</p>
+        <span class="footer-student">Universidad Galileo - Ingeniería en Sistemas</span>
+    </footer>
+
+    <!-- Scripts lógicos de la aplicación -->
+    <script src="app.js"></script>
+</body>
+</html>
